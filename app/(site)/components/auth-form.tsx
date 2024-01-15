@@ -47,7 +47,11 @@ export const AuthForm = () => {
     <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
       <div className='bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10'>
         <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
-          <Input />
+          {
+            variant === 'REGISTER' && <Input register={register} errors={errors} label='Name' id='name' />
+          }
+          <Input register={register} errors={errors} label='Email' id='email' type='email' />
+          <Input register={register} errors={errors} label='Password' id='password' type='password' />
         </form>
       </div>
     </div>
