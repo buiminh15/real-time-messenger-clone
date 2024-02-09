@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react'
+import React from 'react';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -32,5 +32,5 @@ export const Input: React.FC<InputProps> = ({
       </div>
 
     </div>
-  )
-}
+  );
+};

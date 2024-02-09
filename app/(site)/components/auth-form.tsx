@@ -1,21 +1,22 @@
-'use client'
-import { Input } from '@/app/components/input'
-import React, { useCallback, useState } from 'react'
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+'use client';
+import { Button } from '@/app/components/button';
+import { Input } from '@/app/components/input';
+import React, { useCallback, useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 type Variant = 'LOGIN' | 'REGISTER'
 
 export const AuthForm = () => {
-  const [variant, setVariant] = useState<Variant>('LOGIN')
-  const [isLoading, setIsLoading] = useState(false)
+  const [variant, setVariant] = useState<Variant>('LOGIN');
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleVariant = useCallback(() => {
     if (variant === 'LOGIN') {
-      setVariant('REGISTER')
+      setVariant('REGISTER');
     } else {
-      setVariant('LOGIN')
+      setVariant('LOGIN');
     }
-  }, [variant])
+  }, [variant]);
 
   const { register, handleSubmit, formState: {
     errors
@@ -25,10 +26,10 @@ export const AuthForm = () => {
       email: '',
       password: '',
     }
-  })
+  });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     if (variant === 'LOGIN') {
 
@@ -37,11 +38,11 @@ export const AuthForm = () => {
     if (variant === 'REGISTER') {
 
     }
-  }
+  };
 
   const socialAction = (action: string) => {
-    setIsLoading(true)
-  }
+    setIsLoading(true);
+  };
 
   return (
     <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
@@ -52,8 +53,12 @@ export const AuthForm = () => {
           }
           <Input register={register} errors={errors} label='Email' id='email' type='email' />
           <Input register={register} errors={errors} label='Password' id='password' type='password' />
+
+          <div>
+            <Button>Test</Button>
+          </div>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
